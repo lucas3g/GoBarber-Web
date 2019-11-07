@@ -7,22 +7,26 @@ import { Container } from './styles';
 export default function Profile() {
   const profile = useSelector(state => state.user.profile);
 
-  function handleSubmit(data) {}
+  // function handleSubmit(data) {}
 
   return (
     <Container>
-      <Form initialData={profile} onSubmit={handleSubmit}>
-        <Input name="name" placeholder="Nome Completo" type="text" />
-        <Input name="email" placeholder="Seu endereço de e-mail" type="email" />
+      <Form initialData={profile}>
+        <Input name="name" placeholder="Nome Completo" />
+        <Input name="email" type="email" placeholder="Seu endereço de e-mail" />
 
         <hr />
 
-        <Input name="oldPassword" placeholder="Senha atual" type="password" />
-        <Input name="password" placeholder="Nova senha" type="password" />
         <Input
+          type="password"
+          name="oldPassword"
+          placeholder="Sua Senha atual"
+        />
+        <Input type="password" name="password" placeholder="Nova senha" />
+        <Input
+          type="password"
           name="confirmPassword"
           placeholder="Cofirme a nova senha"
-          type="password"
         />
         <button type="submit">Atualizar perfil</button>
       </Form>
